@@ -4,7 +4,7 @@ const con = require("./config");
 const app = express();
 let cors = require("cors");
 app.use(cors());
-
+var PORT = "5000";
 
 // Handling GET request
 app.get("/products", (req, resp) => {
@@ -17,8 +17,10 @@ app.get("/products", (req, resp) => {
     });
   });
 // Port Number
-const PORT = process.env.PORT ||5000;
+
  
 // Server Setup
-app.listen(PORT,console.log(
-  `Server started on port ${PORT}`));
+app.listen(PORT, function (err) {
+  if (err) console.log("Error in server setup");
+  console.log("Server listening on Port", PORT);
+});
