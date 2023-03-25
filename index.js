@@ -2,7 +2,10 @@ const express = require('express');
 const con = require("./config");
 
 const app = express();
- 
+let cors = require("cors");
+app.use(cors());
+
+
 // Handling GET request
 app.get("/products", (req, resp) => {
     con.query("select * from shopproducts", (err, result) => {
